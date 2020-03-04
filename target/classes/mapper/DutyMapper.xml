@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zy.me.dao.DutyMapper" >
+  <resultMap id="BaseResultMap" type="com.zy.me.model.Duty" >
+    <id column="DUTY_ID" property="dutyId" jdbcType="VARCHAR" />
+    <result column="DUTY_CODE" property="dutyCode" jdbcType="VARCHAR" />
+    <result column="DUTY_NAME" property="dutyName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    DUTY_ID, DUTY_CODE, DUTY_NAME
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from duty
+    where DUTY_ID = #{dutyId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from duty
+    where DUTY_ID = #{dutyId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.zy.me.model.Duty" >
+    insert into duty (DUTY_ID, DUTY_CODE, DUTY_NAME
+      )
+    values (#{dutyId,jdbcType=VARCHAR}, #{dutyCode,jdbcType=VARCHAR}, #{dutyName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.zy.me.model.Duty" >
+    insert into duty
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="dutyId != null" >
+        DUTY_ID,
+      </if>
+      <if test="dutyCode != null" >
+        DUTY_CODE,
+      </if>
+      <if test="dutyName != null" >
+        DUTY_NAME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="dutyId != null" >
+        #{dutyId,jdbcType=VARCHAR},
+      </if>
+      <if test="dutyCode != null" >
+        #{dutyCode,jdbcType=VARCHAR},
+      </if>
+      <if test="dutyName != null" >
+        #{dutyName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zy.me.model.Duty" >
+    update duty
+    <set >
+      <if test="dutyCode != null" >
+        DUTY_CODE = #{dutyCode,jdbcType=VARCHAR},
+      </if>
+      <if test="dutyName != null" >
+        DUTY_NAME = #{dutyName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where DUTY_ID = #{dutyId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zy.me.model.Duty" >
+    update duty
+    set DUTY_CODE = #{dutyCode,jdbcType=VARCHAR},
+      DUTY_NAME = #{dutyName,jdbcType=VARCHAR}
+    where DUTY_ID = #{dutyId,jdbcType=VARCHAR}
+  </update>
+</mapper>

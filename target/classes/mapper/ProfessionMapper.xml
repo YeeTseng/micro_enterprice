@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zy.me.dao.ProfessionMapper" >
+  <resultMap id="BaseResultMap" type="com.zy.me.model.Profession" >
+    <id column="PROFESSION_CODE" property="professionCode" jdbcType="VARCHAR" />
+    <result column="SUPER_CODE" property="superCode" jdbcType="VARCHAR" />
+    <result column="PROFESSION_NAME" property="professionName" jdbcType="VARCHAR" />
+    <result column="ENABLED" property="enabled" jdbcType="INTEGER" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.zy.me.model.Profession" extends="BaseResultMap" >
+    <result column="REMARKS" property="remarks" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    PROFESSION_CODE, SUPER_CODE, PROFESSION_NAME, ENABLED
+  </sql>
+  <sql id="Blob_Column_List" >
+    REMARKS
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from profession
+    where PROFESSION_CODE = #{professionCode,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from profession
+    where PROFESSION_CODE = #{professionCode,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.zy.me.model.Profession" >
+    insert into profession (PROFESSION_CODE, SUPER_CODE, PROFESSION_NAME, 
+      ENABLED, REMARKS)
+    values (#{professionCode,jdbcType=VARCHAR}, #{superCode,jdbcType=VARCHAR}, #{professionName,jdbcType=VARCHAR}, 
+      #{enabled,jdbcType=INTEGER}, #{remarks,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.zy.me.model.Profession" >
+    insert into profession
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="professionCode != null" >
+        PROFESSION_CODE,
+      </if>
+      <if test="superCode != null" >
+        SUPER_CODE,
+      </if>
+      <if test="professionName != null" >
+        PROFESSION_NAME,
+      </if>
+      <if test="enabled != null" >
+        ENABLED,
+      </if>
+      <if test="remarks != null" >
+        REMARKS,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="professionCode != null" >
+        #{professionCode,jdbcType=VARCHAR},
+      </if>
+      <if test="superCode != null" >
+        #{superCode,jdbcType=VARCHAR},
+      </if>
+      <if test="professionName != null" >
+        #{professionName,jdbcType=VARCHAR},
+      </if>
+      <if test="enabled != null" >
+        #{enabled,jdbcType=INTEGER},
+      </if>
+      <if test="remarks != null" >
+        #{remarks,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zy.me.model.Profession" >
+    update profession
+    <set >
+      <if test="superCode != null" >
+        SUPER_CODE = #{superCode,jdbcType=VARCHAR},
+      </if>
+      <if test="professionName != null" >
+        PROFESSION_NAME = #{professionName,jdbcType=VARCHAR},
+      </if>
+      <if test="enabled != null" >
+        ENABLED = #{enabled,jdbcType=INTEGER},
+      </if>
+      <if test="remarks != null" >
+        REMARKS = #{remarks,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where PROFESSION_CODE = #{professionCode,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.zy.me.model.Profession" >
+    update profession
+    set SUPER_CODE = #{superCode,jdbcType=VARCHAR},
+      PROFESSION_NAME = #{professionName,jdbcType=VARCHAR},
+      ENABLED = #{enabled,jdbcType=INTEGER},
+      REMARKS = #{remarks,jdbcType=LONGVARCHAR}
+    where PROFESSION_CODE = #{professionCode,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zy.me.model.Profession" >
+    update profession
+    set SUPER_CODE = #{superCode,jdbcType=VARCHAR},
+      PROFESSION_NAME = #{professionName,jdbcType=VARCHAR},
+      ENABLED = #{enabled,jdbcType=INTEGER}
+    where PROFESSION_CODE = #{professionCode,jdbcType=VARCHAR}
+  </update>
+</mapper>
