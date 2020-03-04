@@ -2,53 +2,17 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.zy.me.dao.UsersMapper">
   <resultMap id="BaseResultMap" type="com.zy.me.model.Users">
-    <result column="USER" jdbcType="CHAR" property="user" />
-    <result column="CURRENT_CONNECTIONS" jdbcType="BIGINT" property="currentConnections" />
-    <result column="TOTAL_CONNECTIONS" jdbcType="BIGINT" property="totalConnections" />
-  </resultMap>
-  <insert id="insert" parameterType="com.zy.me.model.Users">
-    insert into users (USER, CURRENT_CONNECTIONS, TOTAL_CONNECTIONS
-      )
-    values (#{user,jdbcType=CHAR}, #{currentConnections,jdbcType=BIGINT}, #{totalConnections,jdbcType=BIGINT}
-      )
-  </insert>
-  <insert id="insertSelective" parameterType="com.zy.me.model.Users">
-    insert into users
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="user != null">
-        USER,
-      </if>
-      <if test="currentConnections != null">
-        CURRENT_CONNECTIONS,
-      </if>
-      <if test="totalConnections != null">
-        TOTAL_CONNECTIONS,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="user != null">
-        #{user,jdbcType=CHAR},
-      </if>
-      <if test="currentConnections != null">
-        #{currentConnections,jdbcType=BIGINT},
-      </if>
-      <if test="totalConnections != null">
-        #{totalConnections,jdbcType=BIGINT},
-      </if>
-    </trim>
-  </insert>
-  <resultMap id="BaseResultMap" type="com.zy.me.model.Users">
-    <id column="ID" jdbcType="VARCHAR" property="id" />
-    <result column="USER_ID" jdbcType="VARCHAR" property="userId" />
-    <result column="USER_NAME" jdbcType="VARCHAR" property="userName" />
-    <result column="GENDER" jdbcType="INTEGER" property="gender" />
-    <result column="REAL_NAME" jdbcType="VARCHAR" property="realName" />
-    <result column="PROFESSION_CODE" jdbcType="VARCHAR" property="professionCode" />
-    <result column="PROFESSION_NAME" jdbcType="VARCHAR" property="professionName" />
-    <result column="COMPANY" jdbcType="VARCHAR" property="company" />
-    <result column="DUTY_CODE" jdbcType="VARCHAR" property="dutyCode" />
-    <result column="PASSWORD" jdbcType="VARCHAR" property="password" />
-    <result column="MOBILE_NUM" jdbcType="VARCHAR" property="mobileNum" />
+    <id column="ID"  property="id" />
+    <result column="USER_ID"  property="userId" />
+    <result column="USER_NAME"  property="userName" />
+    <result column="GENDER"  property="gender" />
+    <result column="REAL_NAME"  property="realName" />
+    <result column="PROFESSION_CODE"  property="professionCode" />
+    <result column="PROFESSION_NAME"  property="professionName" />
+    <result column="COMPANY"  property="company" />
+    <result column="DUTY_CODE"  property="dutyCode" />
+    <result column="PASSWORD"  property="password" />
+    <result column="MOBILE_NUM"  property="mobileNum" />
   </resultMap>
   <sql id="Base_Column_List">
     ID, USER_ID, USER_NAME, GENDER, REAL_NAME, PROFESSION_CODE, PROFESSION_NAME, COMPANY, 
@@ -58,21 +22,21 @@
     select 
     <include refid="Base_Column_List" />
     from users
-    where ID = #{id,jdbcType=VARCHAR}
+    where ID = #{id}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
     delete from users
-    where ID = #{id,jdbcType=VARCHAR}
+    where ID = #{id}
   </delete>
   <insert id="insert" parameterType="com.zy.me.model.Users">
     insert into users (ID, USER_ID, USER_NAME, 
       GENDER, REAL_NAME, PROFESSION_CODE, 
       PROFESSION_NAME, COMPANY, DUTY_CODE, 
       PASSWORD, MOBILE_NUM)
-    values (#{id,jdbcType=VARCHAR}, #{userId,jdbcType=VARCHAR}, #{userName,jdbcType=VARCHAR}, 
-      #{gender,jdbcType=INTEGER}, #{realName,jdbcType=VARCHAR}, #{professionCode,jdbcType=VARCHAR}, 
-      #{professionName,jdbcType=VARCHAR}, #{company,jdbcType=VARCHAR}, #{dutyCode,jdbcType=VARCHAR}, 
-      #{password,jdbcType=VARCHAR}, #{mobileNum,jdbcType=VARCHAR})
+    values (#{id}, #{userId}, #{userName}, 
+      #{gender}, #{realName}, #{professionCode}, 
+      #{professionName}, #{company}, #{dutyCode}, 
+      #{password}, #{mobileNum})
   </insert>
   <insert id="insertSelective" parameterType="com.zy.me.model.Users">
     insert into users
@@ -113,37 +77,37 @@
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="id != null">
-        #{id,jdbcType=VARCHAR},
+        #{id},
       </if>
       <if test="userId != null">
-        #{userId,jdbcType=VARCHAR},
+        #{userId},
       </if>
       <if test="userName != null">
-        #{userName,jdbcType=VARCHAR},
+        #{userName},
       </if>
       <if test="gender != null">
-        #{gender,jdbcType=INTEGER},
+        #{gender},
       </if>
       <if test="realName != null">
-        #{realName,jdbcType=VARCHAR},
+        #{realName},
       </if>
       <if test="professionCode != null">
-        #{professionCode,jdbcType=VARCHAR},
+        #{professionCode},
       </if>
       <if test="professionName != null">
-        #{professionName,jdbcType=VARCHAR},
+        #{professionName},
       </if>
       <if test="company != null">
-        #{company,jdbcType=VARCHAR},
+        #{company},
       </if>
       <if test="dutyCode != null">
-        #{dutyCode,jdbcType=VARCHAR},
+        #{dutyCode},
       </if>
       <if test="password != null">
-        #{password,jdbcType=VARCHAR},
+        #{password},
       </if>
       <if test="mobileNum != null">
-        #{mobileNum,jdbcType=VARCHAR},
+        #{mobileNum},
       </if>
     </trim>
   </insert>
@@ -151,50 +115,50 @@
     update users
     <set>
       <if test="userId != null">
-        USER_ID = #{userId,jdbcType=VARCHAR},
+        USER_ID = #{userId},
       </if>
       <if test="userName != null">
-        USER_NAME = #{userName,jdbcType=VARCHAR},
+        USER_NAME = #{userName},
       </if>
       <if test="gender != null">
-        GENDER = #{gender,jdbcType=INTEGER},
+        GENDER = #{gender},
       </if>
       <if test="realName != null">
-        REAL_NAME = #{realName,jdbcType=VARCHAR},
+        REAL_NAME = #{realName},
       </if>
       <if test="professionCode != null">
-        PROFESSION_CODE = #{professionCode,jdbcType=VARCHAR},
+        PROFESSION_CODE = #{professionCode},
       </if>
       <if test="professionName != null">
-        PROFESSION_NAME = #{professionName,jdbcType=VARCHAR},
+        PROFESSION_NAME = #{professionName},
       </if>
       <if test="company != null">
-        COMPANY = #{company,jdbcType=VARCHAR},
+        COMPANY = #{company},
       </if>
       <if test="dutyCode != null">
-        DUTY_CODE = #{dutyCode,jdbcType=VARCHAR},
+        DUTY_CODE = #{dutyCode},
       </if>
       <if test="password != null">
-        PASSWORD = #{password,jdbcType=VARCHAR},
+        PASSWORD = #{password},
       </if>
       <if test="mobileNum != null">
-        MOBILE_NUM = #{mobileNum,jdbcType=VARCHAR},
+        MOBILE_NUM = #{mobileNum},
       </if>
     </set>
-    where ID = #{id,jdbcType=VARCHAR}
+    where ID = #{id}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.zy.me.model.Users">
     update users
-    set USER_ID = #{userId,jdbcType=VARCHAR},
-      USER_NAME = #{userName,jdbcType=VARCHAR},
-      GENDER = #{gender,jdbcType=INTEGER},
-      REAL_NAME = #{realName,jdbcType=VARCHAR},
-      PROFESSION_CODE = #{professionCode,jdbcType=VARCHAR},
-      PROFESSION_NAME = #{professionName,jdbcType=VARCHAR},
-      COMPANY = #{company,jdbcType=VARCHAR},
-      DUTY_CODE = #{dutyCode,jdbcType=VARCHAR},
-      PASSWORD = #{password,jdbcType=VARCHAR},
-      MOBILE_NUM = #{mobileNum,jdbcType=VARCHAR}
-    where ID = #{id,jdbcType=VARCHAR}
+    set USER_ID = #{userId},
+      USER_NAME = #{userName},
+      GENDER = #{gender},
+      REAL_NAME = #{realName},
+      PROFESSION_CODE = #{professionCode},
+      PROFESSION_NAME = #{professionName},
+      COMPANY = #{company},
+      DUTY_CODE = #{dutyCode},
+      PASSWORD = #{password},
+      MOBILE_NUM = #{mobileNum}
+    where ID = #{id}
   </update>
 </mapper>

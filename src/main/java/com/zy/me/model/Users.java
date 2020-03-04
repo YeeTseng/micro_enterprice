@@ -1,33 +1,34 @@
 package com.zy.me.model;
 
+import lombok.*;
+
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@ToString
 public class Users {
-    private String user;
 
-    private Long currentConnections;
+    private String id;
 
-    private Long totalConnections;
+    private String userId;//用户ID
 
-    public String getUser() {
-        return user;
-    }
+    private String userName;//用户名
 
-    public void setUser(String user) {
-        this.user = user == null ? null : user.trim();
-    }
+    private int gender;//性别: 0-女,1-男
 
-    public Long getCurrentConnections() {
-        return currentConnections;
-    }
+    private String realName;//真实姓名
 
-    public void setCurrentConnections(Long currentConnections) {
-        this.currentConnections = currentConnections;
-    }
+    private String professionCode;//行业代码
 
-    public Long getTotalConnections() {
-        return totalConnections;
-    }
+    private String professionName;//行业名称
 
-    public void setTotalConnections(Long totalConnections) {
-        this.totalConnections = totalConnections;
-    }
+    private String company;//公司
+
+    private String dutyCode;//职业代码
+
+    private String password;//密码
+
+    private String mobileNum;//手机号码
+
 }
