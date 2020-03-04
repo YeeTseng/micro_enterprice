@@ -1,42 +1,42 @@
-<!--<?xml version="1.0" encoding="UTF-8" ?>-->
-<!--<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >-->
-<!--<generatorConfiguration>-->
-<!--    &lt;!&ndash; classPathEntry用于设置数据库驱动包位置&ndash;&gt;-->
-<!--    <classPathEntry location="D:\Maven\repository\mysql\mysql-connector-java\8.0.19\mysql-connector-java-8.0.19.jar"/>-->
-<!--    &lt;!&ndash; targetRuntime：代码生成目标，默认是MyBatis3&ndash;&gt;-->
-<!--    <context id="DB2Tables" targetRuntime="MyBatis3">-->
-<!--        <commentGenerator>-->
-<!--            <property name="suppressAllComments" value="true"/>-->
-<!--        </commentGenerator>-->
-<!--        &lt;!&ndash; 数据库连接的信息 ok &ndash;&gt;-->
-<!--        <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://localhost:3306/micro_enterprice?serverTimezone=UTC" userId="root" password="Zengyi.78061123">-->
-<!--        </jdbcConnection>-->
-<!--        &lt;!&ndash; 解决数据转换问题 ok&ndash;&gt;-->
-<!--        <javaTypeResolver>-->
-<!--            &lt;!&ndash;是否强制使用BigDecimal来表示所有的十进制和数值字段。&ndash;&gt;-->
-<!--            <property name="forceBigDecimals" value="false" />-->
-<!--        </javaTypeResolver>-->
-<!--        &lt;!&ndash;生成模型的包名和位置&ndash;&gt;-->
-<!--        <javaModelGenerator targetPackage="com.zy.me.model" targetProject="J:\WorkSpace\Idea-WorkSpace\src\main\java">-->
-<!--            <property name="enableSubPackages" value="true" />-->
-<!--            <property name="trimStrings" value="true" />-->
-<!--        </javaModelGenerator>-->
-<!--        &lt;!&ndash;生成的映射文件包名和位置&ndash;&gt;-->
-<!--        <sqlMapGenerator targetPackage="main/resources/mapper" targetProject="J:\WorkSpace\Idea-WorkSpace\src">-->
-<!--            <property name="enableSubPackages" value="true" />-->
-<!--        </sqlMapGenerator>-->
-<!--        &lt;!&ndash;生成DAO的包名和位置&ndash;&gt;-->
-<!--        <javaClientGenerator type="XMLMAPPER" targetPackage="com.zy.me.dao" targetProject="J:\WorkSpace\Idea-WorkSpace\src\main\java">-->
-<!--            <property name="enableSubPackages" value="true" />-->
-<!--        </javaClientGenerator>-->
-<!--        &lt;!&ndash;要生成那些文件&ndash;&gt;-->
-<!--        &lt;!&ndash;<table tableName="表名"  domainObjectName="类名"></table>&ndash;&gt;-->
-<!--        &lt;!&ndash; 2020-03-04已添加 &ndash;&gt;-->
-<!--        <table tableName="users" domainObjectName="Users"  enableCountByExample="false" enableUpdateByExample="false"-->
-<!--               enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>-->
-<!--        <table tableName="profession" domainObjectName="Profession"  enableCountByExample="false" enableUpdateByExample="false"-->
-<!--               enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>-->
-<!--        <table tableName="duty" domainObjectName="Duty"  enableCountByExample="false" enableUpdateByExample="false"-->
-<!--               enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>-->
-<!--    </context>-->
-<!--</generatorConfiguration>-->
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+<generatorConfiguration>
+    <!-- classPathEntry用于设置数据库驱动包位置-->
+    <classPathEntry location="D:\Maven\repository\mysql\mysql-connector-java\8.0.19\mysql-connector-java-8.0.19.jar"/>
+    <!-- targetRuntime：代码生成目标，默认是MyBatis3-->
+    <context id="DB2Tables" targetRuntime="MyBatis3">
+        <commentGenerator>
+            <property name="suppressAllComments" value="true"/>
+        </commentGenerator>
+        <!-- 数据库连接的信息 ok -->
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://localhost:3306/micro_enterprice?serverTimezone=UTC" userId="root" password="Zengyi.78061123">
+        </jdbcConnection>
+        <!-- 解决数据转换问题 ok-->
+        <javaTypeResolver>
+            <!--是否强制使用BigDecimal来表示所有的十进制和数值字段。-->
+            <property name="forceBigDecimals" value="false" />
+        </javaTypeResolver>
+        <!--生成模型的包名和位置-->
+        <javaModelGenerator targetPackage="com.zy.me.model" targetProject="J:\WorkSpace\Idea-WorkSpace\src\main\java">
+            <property name="enableSubPackages" value="true" />
+            <property name="trimStrings" value="true" />
+        </javaModelGenerator>
+        <!--生成的映射文件包名和位置-->
+        <sqlMapGenerator targetPackage="main/resources/mapper" targetProject="J:\WorkSpace\Idea-WorkSpace\src">
+            <property name="enableSubPackages" value="true" />
+        </sqlMapGenerator>
+        <!--生成DAO的包名和位置-->
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.zy.me.dao" targetProject="J:\WorkSpace\Idea-WorkSpace\src\main\java">
+            <property name="enableSubPackages" value="true" />
+        </javaClientGenerator>
+        <!--要生成那些文件-->
+        <table tableName="表名"  domainObjectName="类名"></table>
+        <!-- 2020-03-04已添加 -->
+        <!--<table tableName="users" domainObjectName="Users"  enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>
+        <table tableName="profession" domainObjectName="Profession"  enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>
+        <table tableName="duty" domainObjectName="Duty"  enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>-->
+    </context>
+</generatorConfiguration>

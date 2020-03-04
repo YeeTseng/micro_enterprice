@@ -1,7 +1,9 @@
 package com.zy.me.dao;
 
 import com.zy.me.model.Profession;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface ProfessionMapper {
     int deleteByPrimaryKey(String professionCode);
 

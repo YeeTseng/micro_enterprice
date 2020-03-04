@@ -1,10 +1,8 @@
-package com.zy.me.dao;
+package com.zy.me.service;
 
 import com.zy.me.model.Users;
-import org.springframework.stereotype.Repository;
 
-@Repository
-public interface UsersMapper {
+public interface UserService {
 
     Users selectByPrimaryKey(String id);
 

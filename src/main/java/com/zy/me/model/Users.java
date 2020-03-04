@@ -1,11 +1,11 @@
 package com.zy.me.model;
 
-import lombok.*;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
 @Getter
 @Setter
-@NoArgsConstructor
-@AllArgsConstructor
 @ToString
 public class Users {
 
@@ -30,5 +30,4 @@ public class Users {
     private String password;//密码
 
     private String mobileNum;//手机号码
-
 }

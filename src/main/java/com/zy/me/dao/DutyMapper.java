@@ -1,7 +1,9 @@
 package com.zy.me.dao;
 
 import com.zy.me.model.Duty;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface DutyMapper {
     int deleteByPrimaryKey(String dutyId);
 
