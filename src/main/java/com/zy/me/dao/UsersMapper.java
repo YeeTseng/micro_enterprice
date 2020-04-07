@@ -3,6 +3,8 @@ package com.zy.me.dao;
 import com.zy.me.model.Users;
 import org.springframework.stereotype.Repository;
 
+import java.util.Map;
+
 @Repository
 public interface UsersMapper {
 
@@ -17,5 +19,7 @@ public interface UsersMapper {
     void updateByPrimaryKeySelective(Users users);
 
     void updateByPrimaryKey(Users users);
+
+    Users selectByUsername(Map<String,Object> map);
 
 }

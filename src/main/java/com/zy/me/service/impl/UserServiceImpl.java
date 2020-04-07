@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Map;
+
 @Service("userService")
 @Transactional
 public class UserServiceImpl implements UserService {
@@ -41,5 +43,10 @@ public class UserServiceImpl implements UserService {
     @Override
     public void updateByPrimaryKey(Users users) {
         usersMapper.updateByPrimaryKey(users);
+    }
+
+    @Override
+    public Users selectByUsername(Map<String, Object> map) {
+        return usersMapper.selectByUsername(map);
     }
 }

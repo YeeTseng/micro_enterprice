@@ -2,6 +2,8 @@ package com.zy.me.service;
 
 import com.zy.me.model.Users;
 
+import java.util.Map;
+
 public interface UserService {
 
     Users selectByPrimaryKey(String id);
@@ -16,4 +18,5 @@ public interface UserService {
 
     void updateByPrimaryKey(Users users);
 
+    Users selectByUsername(Map<String,Object> map);
 }

@@ -14,16 +14,28 @@
     <result column="PASSWORD"  property="password" />
     <result column="MOBILE_NUM"  property="mobileNum" />
   </resultMap>
+  <select id="selectByUsername" parameterType="java.util.Map" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"/>
+    from users
+    where USER_NAME=#{userName} and PASSWORD=#{password}
+    <if test="mobileNum != null">
+      and MOBILE_NUM=#{mobileNum}
+    </if>
+
+  </select>
   <sql id="Base_Column_List">
     ID, USER_ID, USER_NAME, GENDER, REAL_NAME, PROFESSION_CODE, PROFESSION_NAME, COMPANY, 
     DUTY_CODE, PASSWORD, MOBILE_NUM
   </sql>
+
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select 
+    select
     <include refid="Base_Column_List" />
     from users
     where ID = #{id}
   </select>
+
   <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
     delete from users
     where ID = #{id}
