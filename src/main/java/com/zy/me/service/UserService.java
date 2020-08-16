@@ -18,7 +18,7 @@ public interface UserService {
 
     /**
      * 主键删除
-     * @param id
+     * @param id - 主键
      */
     void deleteByPrimaryKey(String id);
 
@@ -42,7 +42,7 @@ public interface UserService {
 
     /**
      * 逐渐修改
-     * @param users
+     * @param users - 用户对象
      */
     void updateByPrimaryKey(Users users);
 
