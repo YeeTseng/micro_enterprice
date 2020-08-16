@@ -6,8 +6,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.support.SpringBootServletInitializer;
 
+/**
+ * 扫描dao包下的类
+ * @author Administrator
+ */
 @SpringBootApplication
-//扫描dao包下的类
 @MapperScan("com.zy.me.dao")
 public class Start extends SpringBootServletInitializer {
 
